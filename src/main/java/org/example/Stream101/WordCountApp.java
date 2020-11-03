@@ -16,6 +16,34 @@ import org.apache.kafka.streams.kstream.Produced;
 
 public class WordCountApp {
 
+ /*
+# launch zookeeper
+    zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties
+
+# launch kafka instance
+    kafka-server-start /usr/local/etc/kafka/server.properties
+
+# create input topic
+    kafka-topics --zookeeper 127.0.0.1:2181 --topic word-count-input --create --partitions 2 --replication-factor 1
+
+# create output topic
+    kafka-topics --zookeeper 127.0.0.1:2181 --topic word-count-output --create --partitions 2 --replication-factor 1
+
+# launch a Kafka consumer
+    kafka-console-consumer --bootstrap-server 127.0.0.1:9092 \
+            --topic word-count-output \
+            --from-beginning \
+            --formatter kafka.tools.DefaultMessageFormatter \
+            --property print.key=true \
+            --property print.value=true \
+            --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer \
+            --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
+
+# launch the streams application in Intellij
+
+# produce data
+    kafka-console-producer --broker-list 127.0.0.1:9092 --topic word-count-input
+*/
     public Topology createTopology(){
         StreamsBuilder builder = new StreamsBuilder();
         // 1 - stream from Kafka

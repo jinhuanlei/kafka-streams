@@ -1,7 +1,7 @@
 # kafka-streams
 projects to practice Kafka Stream
 
-## scripts for run Word-Count
+## sample scripts
 ```
 # launch zookeeper
 zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties

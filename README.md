@@ -3,6 +3,12 @@ projects to practice Kafka Stream
 
 ## scripts for run Word-Count
 ```
+# launch zookeeper
+zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties
+
+# launch kafka instance
+kafka-server-start /usr/local/etc/kafka/server.properties
+
 # create input topic
 kafka-topics --zookeeper 127.0.0.1:2181 --topic word-count-input --create --partitions 2 --replication-factor 1
 

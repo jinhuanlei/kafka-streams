@@ -4,10 +4,8 @@ projects to practice Kafka Stream
 ## sample scripts
 ```
 # launch zookeeper
-brew services start zookeeper
 
 # launch kafka instance
-brew services start kafka
 
 # create input topic
 kafka-topics --zookeeper 127.0.0.1:2181 --topic word-count-input --create --partitions 2 --replication-factor 1

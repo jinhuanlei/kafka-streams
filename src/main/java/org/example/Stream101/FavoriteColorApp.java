@@ -15,12 +15,12 @@ public class FavoriteColorApp {
 
     /*
 # create input topic
-   kafka-topics --zookeeper 127.0.0.1:2181 --topic favorite-color-input --create --partitions 2 --replication-factor 1
+   kafka-topics --bootstrap-server localhost:9092 --topic favorite-color-input --create --partitions 2 --replication-factor 1
 # create middle layer topic
-   kafka-topics --zookeeper 127.0.0.1:2181 --topic users-and-colors --create --partitions 2 --replication-factor 1
+   kafka-topics --bootstrap-server localhost:9092 --topic users-and-colors --create --partitions 2 --replication-factor 1
 
 # create output topic
-   kafka-topics --zookeeper 127.0.0.1:2181 --topic favorite-color-output --create --partitions 2 --replication-factor 1
+   kafka-topics --bootstrap-server localhost:9092 --topic favorite-color-output --create --partitions 2 --replication-factor 1
 
 # launch a Kafka consumer
    kafka-console-consumer --bootstrap-server 127.0.0.1:9092 \

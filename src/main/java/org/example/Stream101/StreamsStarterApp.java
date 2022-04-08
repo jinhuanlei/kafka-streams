@@ -28,9 +28,10 @@ public class StreamsStarterApp {
     // 1 - stream from Kafka
 
     KStream<String, String> textLines = builder.stream("first_topic");
-//    var test = textLines
-//        .filter((key, value) -> value.length() > 0)
-//        .mapValues(v -> String.valueOf(Integer.parseInt(v) * 2));
+    var test = textLines
+        .groupByKey()
+        .reduce((aggValue, newValue) -> aggValue + newValue, Materialized.as("Store"));
+    test.toStream().to("second_topic");
     KafkaStreams kafkaStreams = new KafkaStreams(builder.build(), config);
     kafkaStreams.start();
   }

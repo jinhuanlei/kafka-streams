@@ -15,12 +15,12 @@ public class FavoriteColorApp {
 
     /*
 # create input topic
-   kafka-topics --bootstrap-server localhost:9092 --topic favorite-color-input --create --partitions 2 --replication-factor 1
+   kafka-topics --bootstrap-server localhost:9092 --topic favorite-color-input --create --partitions 1 --replication-factor 1
 # create middle layer topic
-   kafka-topics --bootstrap-server localhost:9092 --topic users-and-colors --create --partitions 2 --replication-factor 1
+   kafka-topics --bootstrap-server localhost:9092 --topic users-and-colors --create --partitions 1 --replication-factor 1
 
 # create output topic
-   kafka-topics --bootstrap-server localhost:9092 --topic favorite-color-output --create --partitions 2 --replication-factor 1
+   kafka-topics --bootstrap-server localhost:9092 --topic favorite-color-output --create --partitions 1 --replication-factor 1
 
 # launch a Kafka consumer
    kafka-console-consumer --bootstrap-server 127.0.0.1:9092 \
@@ -69,7 +69,7 @@ public class FavoriteColorApp {
         Properties config = new Properties();
         config.put(StreamsConfig.APPLICATION_ID_CONFIG, "favorite-color-application");
         config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
-        config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+        config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
         config.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
         config.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
 
